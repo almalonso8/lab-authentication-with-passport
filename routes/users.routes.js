@@ -5,6 +5,8 @@ const userController = require("../controllers/user.controller");
 //middleware
 //constants
 
-router.get("/signup", userController.form);
+router.get("/signup", userController.signup);
+router.post("/signup", userController.doSignup);
+
 
 module.exports = router;
