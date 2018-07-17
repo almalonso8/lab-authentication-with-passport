@@ -3,7 +3,7 @@ const User = require("../models/user");
 const mongoose = require("mongoose");
 
 module.exports.signup = (req, res, next) => {
-    res.render("passport/signup")
+    res.render("user/signup")
 }
 
 module.exports.doSignup = (req, res, next) => {
@@ -25,7 +25,7 @@ module.exports.doSignup = (req, res, next) => {
     })
     .catch(error => {
       if (error instanceof mongoose.Error.ValidationError) {
-        res.render('passport/signup', {
+        res.render('user/signup', {
           user: req.body,
           errors: error.errors
         });

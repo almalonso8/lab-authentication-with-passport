@@ -8,8 +8,12 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const passport = require('passport');
+
+require('./configs/passport.config').setup(passport);
 
 const userRoute = require("./routes/users.routes")
+const sessionRoute = require("./routes/session.routes");
 
 
 mongoose.Promise = Promise;
@@ -40,18 +44,45 @@ app.use(require('node-sass-middleware')({
   sourceMap: true
 }));
       
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
+//Session setup
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  secret: 'SuperSecret - (Change it)',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    secure: false,
+    httpOnly: true,
+    maxAge: 60 * 60 * 24 * 1000
+  }
+}));
+
+//initialize passport and passport session like a middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+//
+app.use((req, res, next) => {
+  res.locals.session = req.user;
+  next();
+})
+
 // default value for title local
 app.locals.title = `Alma's Mess`;
 
 
-app.use('/', userRoute);
+app.use('/user', userRoute);
+app.use('/session', sessionRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
