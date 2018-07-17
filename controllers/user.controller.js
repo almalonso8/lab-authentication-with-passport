@@ -3,7 +3,11 @@ const User = require("../models/user");
 const mongoose = require("mongoose");
 
 module.exports.signup = (req, res, next) => {
+<<<<<<< HEAD
     res.render("user/signup")
+=======
+    res.render("passport/signup")
+>>>>>>> 57d8c00c42a54fcf003d61f2dd981d7ae3e550f8
 }
 
 module.exports.doSignup = (req, res, next) => {
@@ -25,7 +29,11 @@ module.exports.doSignup = (req, res, next) => {
     })
     .catch(error => {
       if (error instanceof mongoose.Error.ValidationError) {
+<<<<<<< HEAD
         res.render('user/signup', {
+=======
+        res.render('passport/signup', {
+>>>>>>> 57d8c00c42a54fcf003d61f2dd981d7ae3e550f8
           user: req.body,
           errors: error.errors
         });
