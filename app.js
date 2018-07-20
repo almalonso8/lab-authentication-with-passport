@@ -9,13 +9,14 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 const passport = require('passport');
+const session = require("express-session");
+const createError = require("http-errors");
 
 require('./configs/passport.config').setup(passport);
 
 const userRoute = require("./routes/users.routes")
 const sessionRoute = require("./routes/session.routes");
 
-const userRoute = require("./routes/users.routes")
 
 
 mongoose.Promise = Promise;
@@ -32,11 +33,6 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 
 const app = express();
 
-// Middleware Setup
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
 
 // Express View engine setup
 
@@ -52,13 +48,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
-<<<<<<< HEAD:app.js
-//Session setup
+//middleware set up
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
+
+//Session setup
 app.use(session({
   secret: 'SuperSecret - (Change it)',
   resave: false,
@@ -80,18 +77,8 @@ app.use((req, res, next) => {
   next();
 })
 
-=======
->>>>>>> 57d8c00c42a54fcf003d61f2dd981d7ae3e550f8:app.js
-// default value for title local
-app.locals.title = `Alma's Mess`;
-
-
-<<<<<<< HEAD:app.js
 app.use('/user', userRoute);
 app.use('/session', sessionRoute);
-=======
-app.use('/', userRoute);
->>>>>>> 57d8c00c42a54fcf003d61f2dd981d7ae3e550f8:app.js
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
