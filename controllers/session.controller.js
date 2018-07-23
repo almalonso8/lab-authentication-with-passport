@@ -33,7 +33,7 @@ function renderWithErrors(errors){
           if (error) {
             next(error)
           } else {
-            res.redirect(`user/private`)
+            res.redirect("/user/private")
           }
         });
       }

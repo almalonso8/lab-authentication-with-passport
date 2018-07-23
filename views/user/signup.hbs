@@ -1,57 +1,179 @@
-<div class="container" style="margin-top:40px">
-		<div class="row">
-			<div class="col-sm-6 col-md-4 col-md-offset-4">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<strong> Sign in to create your account</strong>
-					</div>
-					<div class="panel-body">
-						<form role="form" action="signup" method="POST">
-							<fieldset>
-								<div class="row">
-									<div class="center-block">
-										<img class="profile-img"
-											src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120" alt="user not found">
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-sm-12 col-md-10  col-md-offset-1 ">
-										<div class="form-group">
-											<div class="input-group">
-												<span class="input-group-addon">
-													<i class="glyphicon glyphicon-user"></i>
-												</span> 
-												<input type="text" class="form-control {{#if errors.name }}is-invalid{{/if}}" placeholder="Your name" name="name" value="{{user.name}}" autofocus />
-											</div>
-										</div>
-										<div class="form-group">
-											<div class="input-group">
-												<span class="input-group-addon">
-													<i class="glyphicon glyphicon-envelope"></i>
-												</span> 
-												<input type="email" class="form-control {{#if errors.email }}is-invalid{{/if}}" placeholder="example@email.com" name="email" value="{{user.email}}" autofocus />
-											</div>
-										</div>
-										<div class="form-group">
-											<div class="input-group">
-												<span class="input-group-addon">
-													<i class="glyphicon glyphicon-lock"></i>
-												</span>
-												<input class="form-control" placeholder="Password" name="password" type="password" value="{{user.password}}">
-											</div>
-										</div>
-										<div class="form-group">
-											<input type="submit" class="btn btn-lg btn-primary btn-block" value="Sign in">
-										</div>
-									</div>
-								</div>
-							</fieldset>
+
+   <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <h3 class="my-heading">IRON<span class="bg-main">MUSIC</span></h3>
+            </a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fa fa-bars mfa-white"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <form class="form-inline my-2 my-lg-0 col-md-7">
+                    <input class="myform-control mr-sm-2" type="search" placeholder="Find your favourite places and bands" aria-label="Search">
+                    <button class="btn btn-light"><i class="fa fa-search"></i></button>
+                </form>
+                <ul class="navbar-nav ml-auto">
+					 <li class="nav-link">
+                        <a class="btn btn-primary btn-block btn-register" href="#">Create an Account</a>
+                    </li>
+                    <li class="nav-link">
+                        <form action="session/google" method="POST">
+							<button type="submit" class="btn btn-danger">
+        						<i class="fa fa-google-plus"></i> Login with Google</span>
+							</button>
 						</form>
-					</div>
-					<div class="panel-footer ">
-						Already registered?! <a href="../session/login" onClick=""> Login Here </a>
-					</div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <header class="masthead text-white ">
+        <div class="overlay"></div>
+        <div class="container slider-top-text">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h3 class="my-heading ">WELCOME TO IRON<span class="bg-main">MUSIC</span></h3>
+                    <p class="myp-slider text-center">Where musicians unite and become better together</p>
+                    <p class="myp text-center">ENJOY LIVE MUSIC   |   CONNECT WITH OTHERS   |   MAKE NEW FRIENDS</p>
+                    <a class="btn btn-primary btn-join" href="#">JOIN US</a>
+
                 </div>
-			</div>
-		</div>
-	</div>
+                <div class="col-md-12 text-center mt-5">
+                    <div class="scroll-down">
+                        <a class="btn btn-default btn-scroll floating-arrow" href="#about"><i class="fa fa-angle-down"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="latest-music">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="big-img">
+                        <img src="https://images.pexels.com/photos/167631/pexels-photo-167631.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="inner-section">
+                        <h3>Follow the <span class="bg-main">Next Event</span></h3>
+                        <br>
+                        <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets.</p>
+
+                        <div class="linear-grid">
+                            <div class="row">
+                                <div class="col-sm-6 col-md-3 mb-2">
+                                    <img src="https://images.pexels.com/photos/534031/pexels-photo-534031.jpeg?auto=compress&cs=tinysrgb&h=350" class="img-thumbnail">
+                                </div>
+                                <div class=" col-sm-6 col-md-3 mb-2">
+                                    <img src="https://images.pexels.com/photos/258804/pexels-photo-258804.jpeg?auto=compress&cs=tinysrgb&h=350" class="img-thumbnail">
+                                </div>
+                                <div class="col-sm-6 col-md-3 mb-2">
+                                    <img src="https://images.pexels.com/photos/285598/pexels-photo-285598.jpeg?auto=compress&cs=tinysrgb&h=350" class="img-thumbnail">
+                                </div>
+                                <div class="col-sm-6 col-md-3 mb-2">
+                                    <img src="https://images.pexels.com/photos/167605/pexels-photo-167605.jpeg?auto=compress&cs=tinysrgb&h=350" class="img-thumbnail">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="latest-music text-center mybg-music">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="title-heading text-center font-weight-bold">LATEST <span class="bg-main">MUSIC</span></h3>
+                    <p class="myp text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-4 col-lg-2 mt-4">
+                    <div class="card">
+                        <img class="card-img-top" src="https://images.pexels.com/photos/761963/pexels-photo-761963.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2 mt-4">
+                    <div class="card">
+                        <img class="card-img-top" src="https://images.pexels.com/photos/838696/pexels-photo-838696.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2 mt-4">
+                    <div class="card">
+                        <img class="card-img-top" src="https://images.pexels.com/photos/1047930/pexels-photo-1047930.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2 mt-4">
+                    <div class="card">
+                        <img class="card-img-top" src="https://images.pexels.com/photos/164693/pexels-photo-164693.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2 mt-4">
+                    <div class="card">
+                        <img class="card-img-top" src="https://images.pexels.com/photos/876713/pexels-photo-876713.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2 mt-4">
+                    <div class="card">
+                        <img class="card-img-top" src="https://images.pexels.com/photos/258732/pexels-photo-258732.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2 mt-4">
+                    <div class="card">
+                        <img class="card-img-top" src="https://images.pexels.com/photos/210887/pexels-photo-210887.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2 mt-4">
+                    <div class="card">
+                        <img class="card-img-top" src="https://images.pexels.com/photos/210922/pexels-photo-210922.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2 mt-4">
+                    <div class="card">
+                        <img class="card-img-top" src="https://images.pexels.com/photos/462442/pexels-photo-462442.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2 mt-4">
+                    <div class="card">
+                        <img class="card-img-top" src="https://images.pexels.com/photos/167589/pexels-photo-167589.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2 mt-4">
+                    <div class="card">
+                        <img class="card-img-top" src="https://images.pexels.com/photos/167626/pexels-photo-167626.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2 mt-4">
+                    <div class="card">
+                        <img class="card-img-top" src="https://images.pexels.com/photos/167527/pexels-photo-167527.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>   
+    <footer class="footer bg-dark">
+        		<div class="container">
+            		<p class="text-muted small mb-4 mb-lg-0">BOOTCAMP APRIL 2018 &#9825; </p>
+       			 </div>
+            </div>
+        </div>
+    </footer>
